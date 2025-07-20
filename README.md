@@ -172,6 +172,8 @@ See [LiteLLM providers](https://docs.litellm.ai/docs/providers) for environment 
 
 ## 4. Documentation
 For full documentation, visit [docs.plexe.ai](https://docs.plexe.ai).
+The "Mater Nexus" architect prompt is available in
+[docs/architecture/mater-nexus-architect-prompt.md](docs/architecture/mater-nexus-architect-prompt.md).
 
 ## 5. Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Join our [Discord](https://discord.gg/SefZDepGMv) to connect with the team.
