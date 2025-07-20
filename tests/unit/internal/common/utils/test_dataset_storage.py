@@ -109,3 +109,22 @@ def test_shared_memory_error_handling():
             dataset_from_shared_memory(TabularDataset, "non_existent_segment_name")
     except ImportError:
         pytest.skip("shared_memory not available")
+
+
+@pytest.mark.skipif(
+    not hasattr(__import__("multiprocessing", fromlist=["shared_memory"]), "shared_memory"),
+    reason="Shared memory requires Python 3.8+",
+)
+def test_shared_memory_round_trip():
+    """Ensure a dataset can be stored and retrieved from shared memory."""
+    df = pd.DataFrame({"a": [1, 2, 3], "b": ["x", "y", "z"]})
+    dataset = TabularDataset(df)
+
+    shm = dataset_to_shared_memory(dataset, "test_segment_round_trip")
+    try:
+        loaded = dataset_from_shared_memory(TabularDataset, "test_segment_round_trip")
+        assert isinstance(loaded, TabularDataset)
+        pd.testing.assert_frame_equal(loaded.to_pandas(), df)
+    finally:
+        shm.close()
+        shm.unlink()
