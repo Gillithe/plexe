@@ -188,9 +188,9 @@ If you use Plexe in your research, please cite it as follows:
 
 ```bibtex
 @software{plexe2025,
-  author = {De Bernardi, Marcello AND Dubey, Vaibhav},
+  author = {Shayne-Edward: Chaney},
   title = {Plexe: Build machine learning models using natural language.},
   year = {2025},
   publisher = {GitHub},
-  howpublished = {\url{https://github.com/plexe-ai/plexe}},
+  howpublished = {[\url{https://github.com/](https://github.com/Gillithe/plexe)}},
 }
