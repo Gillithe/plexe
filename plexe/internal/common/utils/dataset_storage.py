@@ -85,20 +85,16 @@ def dataset_from_shared_memory(dataset_class: Type[T], name: str, size: Optional
         # Access the shared memory segment
         shm = shared_memory.SharedMemory(name=name)
 
-        # Determine the size of the data
-        if size is None:
-            # Find the null terminator if size is not specified
-            # This assumes the shared memory was filled with zeros initially
-            # and data is not binary (contains no null bytes)
-            for i in range(shm.size):
-                if shm.buf[i] == 0:
-                    size = i
-                    break
-            else:
+        try:
+            # Determine the size of the data
+            if size is None:
                 size = shm.size
 
-        # Deserialize the dataset
-        data = bytes(shm.buf[:size])
+            # Deserialize the dataset
+            data = bytes(shm.buf[:size])
+        finally:
+            shm.close()
+
         return dataset_class.from_bytes(data)
     except ImportError:
         raise ImportError("Shared memory requires Python 3.8+ and the multiprocessing module")
