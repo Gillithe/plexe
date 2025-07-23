@@ -67,7 +67,7 @@ RESPOND – Return final answer or sub-task list.
 7 • Starter Call
 <<BEGIN Mater Nexus SESSION>>
 Objective: Phase 0 – Craft the Ontology Charter.
-Inputs: {link_to_note_vault}, {sample_documents}
+Inputs: Shayne's note vault, Shayne's sample documents
 Constraints: Use Love-as-Law ethos; tag proprietary glyphs.
 Expected Output: .ttl ontology file + summary markdown.
 <<END>>

@@ -34,12 +34,12 @@ system_prompt: |-
     "name": "document_qa",
     "arguments": {"document": "document.pdf", "question": "Who is the oldest person mentioned?"}
   }
-  Observation: "The oldest person in the document is John Doe, a 55 year old lumberjack living in Newfoundland."
+  Observation: "The oldest person in the document is Shayne, a 55 year old lumberjack living in Newfoundland."
 
   Action:
   {
     "name": "image_generator",
-    "arguments": {"prompt": "A portrait of John Doe, a 55-year-old man living in Canada."}
+    "arguments": {"prompt": "A portrait of Shayne, a 55-year-old man living in Canada."}
   }
   Observation: "image.png"
 
